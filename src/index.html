@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' blob:; font-src 'self' data:;">
+  <title>CodeLearner</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <aside id="sidebar">
+      <div class="sidebar-header">
+        <h1>CodeLearner</h1>
+        <select id="lang-filter">
+          <option value="all">Alla språk</option>
+          <option value="javascript">JavaScript</option>
+          <option value="python">Python</option>
+          <option value="html">HTML/CSS</option>
+        </select>
+      </div>
+      <nav id="lesson-list"></nav>
+    </aside>
+
+    <main id="main-content">
+      <header id="top-bar">
+        <div id="lesson-progress">
+          <span id="lesson-number">Lektion 1</span>
+          <span id="lesson-title">Variabler</span>
+        </div>
+        <div id="lesson-controls">
+          <button id="btn-reset" title="Återställ kod">Återställ</button>
+          <button id="btn-hint" title="Visa tips">Tips</button>
+          <button id="btn-run" title="Kör kod (Ctrl+Enter)">Kör ▶</button>
+        </div>
+      </header>
+
+      <div id="workspace">
+        <div id="lesson-panel">
+          <div id="lesson-content"></div>
+          <div id="hint-box" class="hidden">
+            <strong>💡 Tips:</strong> <span id="hint-text"></span>
+          </div>
+          <div id="challenge-status" class="hidden"></div>
+        </div>
+        <div id="editor-panel">
+          <div class="panel-header">
+            <span>Kodredigerare</span>
+            <span id="lang-badge">JavaScript</span>
+          </div>
+          <div id="editor-container"></div>
+          <div id="output-container">
+            <div class="panel-header">
+              <span>Output</span>
+              <button id="btn-clear">Rensa</button>
+            </div>
+            <pre id="output-content"></pre>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="toast" class="hidden"></div>
+
+  <script src="editor.js"></script>
+  <script src="lessons.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
