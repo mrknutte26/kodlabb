@@ -75,3 +75,5 @@ Betygsättningen baseras på:
 - Steg-för-steg-beskrivning
 
 Får du ≥ 7/10 svarar du `!halloffame` på kommentaren från boten för att bli inlagd.
+
+**Du väljer själv** – ingen läggs till utan uttryckligt samtycke. Svara bara inte, eller skriv att du inte vill, så läggs du inte till.
