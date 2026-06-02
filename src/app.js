@@ -30,13 +30,21 @@
     localStorage.setItem('codelearner_completed', JSON.stringify([...completedLessons]));
   }
 
-  function loadGithubUser() {
+  function   loadGithubUser() {
     return localStorage.getItem('codelearner_github') || '';
   }
 
   function saveGithubUser(name) {
     githubUser = name;
     localStorage.setItem('codelearner_github', name);
+  }
+
+  function loadLanguageChoice() {
+    return localStorage.getItem('codelearner_lang') || '';
+  }
+
+  function saveLanguageChoice(lang) {
+    localStorage.setItem('codelearner_lang', lang);
   }
 
   function getUserName() {
@@ -315,9 +323,31 @@
     }
   });
 
-  const initialLessons = getLessonsByLang('all');
-  if (initialLessons.length > 0) {
-    loadLesson(initialLessons[0], 0);
+  function showWelcome() {
+    const overlay = document.getElementById('welcome-overlay');
+    overlay.classList.remove('hidden');
+
+    overlay.querySelectorAll('.welcome-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const lang = card.dataset.lang;
+        saveLanguageChoice(lang);
+        overlay.classList.add('hidden');
+        langFilterEl.value = lang;
+        langFilterEl.dispatchEvent(new Event('change'));
+      });
+    });
   }
-  updateStats();
+
+  const savedLang = loadLanguageChoice();
+  if (savedLang) {
+    langFilterEl.value = savedLang;
+    const lessons = getLessonsByLang(savedLang);
+    if (lessons.length > 0) loadLesson(lessons[0], 0);
+    updateStats();
+  } else {
+    showWelcome();
+    const allLessons = getLessonsByLang('all');
+    if (allLessons.length > 0) loadLesson(allLessons[0], 0);
+    updateStats();
+  }
 })();
