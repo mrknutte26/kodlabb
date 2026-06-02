@@ -1,4 +1,4 @@
-# Kodex
+# Kodlabb
 
 En interaktiv Electron-app för att lära sig programmering. Stödjer JavaScript, Python och HTML/CSS med inbyggd kodredigerare, övningar och verifiering.
 

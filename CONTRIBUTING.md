@@ -1,11 +1,11 @@
-# Bidra till Kodex
+# Bidra till Kodlabb
 
 Vi välkomnar bidrag! Här är hur du kommer igång.
 
 ## Kom igång
 
 1. Forka repot
-2. Klona din fork: `git clone https://github.com/ditt-användarnamn/kodex.git`
+2. Klona din fork: `git clone https://github.com/ditt-användarnamn/kodlabb.git`
 3. Installera beroenden: `npm install`
 4. Starta appen: `npm start`
 
@@ -49,7 +49,7 @@ npm run build:linux   # Linux (.AppImage)
 
 ## Rapportera buggar
 
-Skapa en [Issue](https://github.com/mrknutte26/kodex/issues) med:
+Skapa en [Issue](https://github.com/mrknutte26/kodlabb/issues) med:
 - Steg för att återskapa
 - Förväntat beteende
 - Verkligt beteende
