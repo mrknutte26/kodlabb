@@ -27,6 +27,9 @@
         <span id="completed-count">0</span>/<span id="total-count">0</span> lektioner klar
       </div>
       <nav id="lesson-list"></nav>
+      <div id="sidebar-footer">
+        <button id="btn-hall-of-fame">🏆 Hall of Fame</button>
+      </div>
     </aside>
 
     <main id="main-content">
@@ -45,6 +48,12 @@
       <div id="workspace">
         <div id="lesson-panel">
           <div id="lesson-content"></div>
+          <div id="hall-of-fame-panel" class="hidden">
+            <h2>🏆 Hall of Fame</h2>
+            <p class="hof-desc">Dessa personer har skapat issues av hög kvalitet (≥ 7/10) som hjälper Kodlabb att bli bättre!</p>
+            <div id="hof-list"></div>
+            <p class="hof-hint">Skapa en bra issue på GitHub för att komma med!</p>
+          </div>
           <div id="hint-box" class="hidden">
             <strong>💡 Tips:</strong> <span id="hint-text"></span>
           </div>

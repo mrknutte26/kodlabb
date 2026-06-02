@@ -88,6 +88,8 @@
   function loadLesson(lesson, idx) {
     currentLesson = lesson;
     currentLessonIndex = idx;
+    document.getElementById('hall-of-fame-panel').classList.add('hidden');
+    document.getElementById('lesson-content').classList.remove('hidden');
     challengeStatusEl.className = 'hidden';
     challengeStatusEl.innerHTML = '';
     hintBoxEl.classList.add('hidden');
@@ -230,10 +232,57 @@
     toastTimeout = setTimeout(() => toast.classList.add('hidden'), 2500);
   }
 
+  let hallOfFameCache = null;
+
+  async function loadHallOfFameData() {
+    if (hallOfFameCache) return hallOfFameCache;
+    try {
+      const res = await fetch('hall-of-fame.json');
+      if (!res.ok) return [];
+      hallOfFameCache = await res.json();
+      return hallOfFameCache;
+    } catch {
+      return [];
+    }
+  }
+
+  async function showHallOfFame() {
+    document.getElementById('lesson-content').classList.add('hidden');
+    document.getElementById('hint-box').classList.add('hidden');
+    document.getElementById('challenge-status').classList.add('hidden');
+    const hofPanel = document.getElementById('hall-of-fame-panel');
+    hofPanel.classList.remove('hidden');
+
+    const listEl = document.getElementById('hof-list');
+    const data = await loadHallOfFameData();
+
+    if (data.length === 0) {
+      listEl.innerHTML = '<p style="color:var(--text-dim);text-align:center;padding:20px;">Inga bidragsgivare än. Skapa en bra issue på GitHub!</p>';
+      return;
+    }
+    listEl.innerHTML = data.map(entry => {
+      const initial = (entry.github || '?')[0].toUpperCase();
+      return `
+        <div class="hof-entry">
+          <div class="hof-avatar">${initial}</div>
+          <div class="hof-info">
+            <div class="hof-name">
+              <a href="https://github.com/${entry.github}" target="_blank">@${entry.github}</a>
+              <span style="font-size:11px;color:var(--text-dim)">#${entry.issue}</span>
+            </div>
+            <div class="hof-issue">${entry.title}</div>
+          </div>
+          <div class="hof-date">${entry.added}</div>
+        </div>
+      `;
+    }).join('');
+  }
+
   document.getElementById('btn-run').addEventListener('click', runCode);
   document.getElementById('btn-hint').addEventListener('click', showHint);
   document.getElementById('btn-reset').addEventListener('click', resetCode);
   document.getElementById('btn-clear').addEventListener('click', clearOutput);
+  document.getElementById('btn-hall-of-fame').addEventListener('click', showHallOfFame);
 
   githubInputEl.value = githubUser;
   githubInputEl.addEventListener('input', (e) => {

@@ -119,6 +119,103 @@ html, body {
   font-weight: 600;
 }
 
+#sidebar-footer {
+  padding: 10px 12px;
+  border-top: 1px solid var(--border);
+}
+
+#btn-hall-of-fame {
+  width: 100%;
+  padding: 8px 12px;
+  background: var(--bg-surface);
+  color: var(--warning);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+#btn-hall-of-fame:hover {
+  background: var(--bg-hover);
+  border-color: var(--warning);
+}
+
+#hall-of-fame-panel {
+  padding: 24px;
+}
+
+#hall-of-fame-panel h2 {
+  font-size: 22px;
+  margin-bottom: 12px;
+  color: var(--warning);
+}
+
+#hall-of-fame-panel .hof-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+#hall-of-fame-panel .hof-hint {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 16px;
+  text-align: center;
+}
+
+.hof-entry {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  margin: 4px 0;
+  background: var(--bg-surface);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.hof-entry .hof-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.hof-entry .hof-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.hof-entry .hof-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hof-entry .hof-issue {
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+.hof-entry .hof-date {
+  font-size: 11px;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
 #lesson-list {
   flex: 1;
   overflow-y: auto;
