@@ -11,13 +11,20 @@
   <div id="app">
     <aside id="sidebar">
       <div class="sidebar-header">
-        <h1>CodeLearner</h1>
+        <h1>Kodlabb</h1>
+        <div class="github-user-box">
+          <input type="text" id="github-user" placeholder="Ditt GitHub-användarnamn" maxlength="39">
+          <span id="gh-check" class="gh-check-icon"></span>
+        </div>
         <select id="lang-filter">
           <option value="all">Alla språk</option>
           <option value="javascript">JavaScript</option>
           <option value="python">Python</option>
           <option value="html">HTML/CSS</option>
         </select>
+      </div>
+      <div id="user-stats">
+        <span id="completed-count">0</span>/<span id="total-count">0</span> lektioner klar
       </div>
       <nav id="lesson-list"></nav>
     </aside>

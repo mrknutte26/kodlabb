@@ -2,6 +2,7 @@
   let currentLesson = null;
   let currentLessonIndex = 0;
   let completedLessons = new Set(loadCompleted());
+  let githubUser = loadGithubUser();
 
   const lessonListEl = document.getElementById('lesson-list');
   const lessonContentEl = document.getElementById('lesson-content');
@@ -12,6 +13,10 @@
   const hintTextEl = document.getElementById('hint-text');
   const challengeStatusEl = document.getElementById('challenge-status');
   const langFilterEl = document.getElementById('lang-filter');
+  const githubInputEl = document.getElementById('github-user');
+  const ghCheckEl = document.getElementById('gh-check');
+  const completedCountEl = document.getElementById('completed-count');
+  const totalCountEl = document.getElementById('total-count');
 
   CodeEditor.init('editor-container');
 
@@ -23,6 +28,19 @@
 
   function saveCompleted() {
     localStorage.setItem('codelearner_completed', JSON.stringify([...completedLessons]));
+  }
+
+  function loadGithubUser() {
+    return localStorage.getItem('codelearner_github') || '';
+  }
+
+  function saveGithubUser(name) {
+    githubUser = name;
+    localStorage.setItem('codelearner_github', name);
+  }
+
+  function getUserName() {
+    return githubUser || 'okänd vän';
   }
 
   function renderLessonList() {
@@ -60,6 +78,13 @@
     });
   }
 
+  function updateStats() {
+    const total = LESSONS.length;
+    const done = completedLessons.size;
+    completedCountEl.textContent = done;
+    totalCountEl.textContent = total;
+  }
+
   function loadLesson(lesson, idx) {
     currentLesson = lesson;
     currentLessonIndex = idx;
@@ -81,6 +106,7 @@
     CodeEditor.focus();
 
     renderLessonList();
+    updateStats();
     updateTitleBar();
   }
 
@@ -124,11 +150,12 @@
         const passed = currentLesson.verify(code);
         if (passed) {
           challengeStatusEl.className = 'challenge-status passed';
-          challengeStatusEl.innerHTML = '✅ Bra jobbat! Uppgiften är löst!';
+          challengeStatusEl.innerHTML = `✅ Bra jobbat, ${getUserName()}! Uppgiften är löst!`;
           completedLessons.add(currentLesson.id);
           saveCompleted();
           renderLessonList();
-          showToast('🎉 Uppgift klar!', 'success');
+          updateStats();
+          showToast(`🎉 ${getUserName()} klarade lektionen!`, 'success');
         } else {
           challengeStatusEl.className = 'challenge-status failed';
           challengeStatusEl.innerHTML = '❌ Nästan rätt! Försök igen. Kolla att din HTML har rätt taggar.';
@@ -151,11 +178,12 @@
           const passed = currentLesson.verify(result.output || '');
           if (passed) {
             challengeStatusEl.className = 'challenge-status passed';
-            challengeStatusEl.innerHTML = '✅ Bra jobbat! Uppgiften är löst!';
+            challengeStatusEl.innerHTML = `✅ Bra jobbat, ${getUserName()}! Uppgiften är löst!`;
             completedLessons.add(currentLesson.id);
             saveCompleted();
             renderLessonList();
-            showToast('🎉 Uppgift klar!', 'success');
+            updateStats();
+            showToast(`🎉 ${getUserName()} klarade lektionen!`, 'success');
           } else {
             challengeStatusEl.className = 'challenge-status failed';
             challengeStatusEl.innerHTML = '❌ Nästan rätt! Försök igen. Kolla att utskriften matchar uppgiften.';
@@ -207,6 +235,18 @@
   document.getElementById('btn-reset').addEventListener('click', resetCode);
   document.getElementById('btn-clear').addEventListener('click', clearOutput);
 
+  githubInputEl.value = githubUser;
+  githubInputEl.addEventListener('input', (e) => {
+    const val = e.target.value.trim();
+    saveGithubUser(val);
+    if (val) {
+      ghCheckEl.textContent = '👤';
+    } else {
+      ghCheckEl.textContent = '';
+    }
+  });
+  if (githubUser) ghCheckEl.textContent = '👤';
+
   langFilterEl.addEventListener('change', () => {
     const lessons = getLessonsByLang(langFilterEl.value);
     if (lessons.length > 0) {
@@ -230,4 +270,5 @@
   if (initialLessons.length > 0) {
     loadLesson(initialLessons[0], 0);
   }
+  updateStats();
 })();
