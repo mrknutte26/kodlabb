@@ -12,6 +12,7 @@ En interaktiv Electron-app för att lära sig programmering. Stödjer JavaScript
 - **Tips-system** – få hjälp när du fastnar
 - **Framstegsspårning** – sparas lokalt i webbläsaren
 - **Mörkt tema** – skonsamt för ögonen
+- **🏆 Hall of Fame** – skapa en bra issue på GitHub och bli evighetsinlagd i appen!
 
 ## Kom igång
 
@@ -60,3 +61,17 @@ npm run build:linux
 - Vanilla JavaScript – ingen extra frontend-ramverk
 - Sandlåde-exekvering för JavaScript i huvudprocessen
 - Blob-URL för HTML-preview
+- **GitHub Actions** – automatisk issue-granskning och Hall of Fame
+
+## Hall of Fame
+
+Skapa en issue av hög kvalitet (≥ 7/10 på Kodlabb-botens betygsskala) på [GitHub](https://github.com/mrknutte26/kodlabb/issues/new) för att bli evigt inlagd i appens Hall of Fame! 🏆
+
+Betygsättningen baseras på:
+- Titelns längd och detaljrikedom
+- Beskrivningens längd och struktur
+- Kodblock (` ``` `)
+- Markdown-formattering
+- Steg-för-steg-beskrivning
+
+Får du ≥ 7/10 svarar du `!halloffame` på kommentaren från boten för att bli inlagd.
