@@ -7,37 +7,30 @@ const LESSONS = [
     level: 1,
     content: `
       <h2>Variabler i JavaScript</h2>
-      <p>En variabel är som en låda där du kan spara data. I JavaScript använder du <code>let</code> eller <code>const</code> för att skapa variabler.</p>
-      
-      <h3>let vs const</h3>
-      <p><code>let</code> används för värden som kan ändras:</p>
-      <pre><code>let age = 25;
-age = 26; // fungerar</code></pre>
-      <p><code>const</code> används för värden som inte kan ändras:</p>
-      <pre><code>const name = "Anna";
-name = "Erik"; // ERROR! går inte</code></pre>
+      <p>En variabel är som en låda där du kan spara data. Du skapar en variabel med <code>let</code> eller <code>const</code>:</p>
+      <pre><code>let ålder = 25;
+const namn = "Anna";</code></pre>
 
       <h3>Olika datatyper</h3>
-      <pre><code>let text = "Hej världen";   // string
-let nummer = 42;            // number
-let sant = true;            // boolean
-let lista = [1, 2, 3];      // array</code></pre>
+      <pre><code>let text = "Hej";       // string
+let tal = 42;            // number
+let sant = true;         // boolean</code></pre>
+      <p>Du skriver ut värden med <code>console.log()</code>.</p>
 
       <div class="challenge-box">
         <h3>✏️ Din uppgift</h3>
-        <p>Skapa en variabel <code>name</code> med ditt namn och en variabel <code>age</code> med din ålder. Skriv ut dem med <code>console.log()</code>.</p>
-        <p><strong>Exempel:</strong> <code>console.log("Hej, jag heter " + name);</code></p>
+        <p>Skapa variablerna <code>name</code> (ditt namn) och <code>age</code> (din ålder). Skriv sedan ut dem med <code>console.log</code>.</p>
       </div>
     `,
-    template: `// Skapa dina variabler här
-let name = "Kalle";
-let age = 25;
+    template: `// Skapa variablerna name och age här
+let name =
+let age =
 
 // Skriv ut dem
 console.log("Hej! Jag heter " + name);
 console.log("Jag är " + age + " år gammal");`,
-    hint: 'Använd `let variabelNamn = värde;` för att skapa en variabel. Använd `+` för att slå ihop text och variabler.',
-    verify: (output) => output.includes('Hej') && output.length > 5,
+    hint: 'Använd `let name = "DittNamn";` och `let age = 25;`. Glöm inte citattecken runt text!',
+    verify: (output) => output.includes('Hej!') && output.includes('år'),
   },
   {
     id: 'js-numbers',
@@ -46,15 +39,12 @@ console.log("Jag är " + age + " år gammal");`,
     level: 2,
     content: `
       <h2>Räkna med siffror</h2>
-      <p>JavaScript kan räkna precis som en miniräknare! Här är de vanligaste räknesätten:</p>
-      <pre><code>let summa = 10 + 5;    // 15
-let differens = 10 - 5; // 5
-let produkt = 10 * 5;   // 50
-let kvot = 10 / 5;      // 2</code></pre>
-
-      <h3>Modulo (rest)</h3>
-      <p><code>%</code> ger resten vid division:</p>
-      <pre><code>console.log(10 % 3); // 1 (10 / 3 = 3 med 1 i rest)</code></pre>
+      <p>Operatorerna i JavaScript:</p>
+      <pre><code>+   addition
+-   subtraktion
+*   multiplikation
+/   division
+%   modulo (rest)</code></pre>
 
       <div class="challenge-box">
         <h3>✏️ Din uppgift</h3>
@@ -65,11 +55,11 @@ let kvot = 10 / 5;      // 2</code></pre>
     template: `let bredd = 8;
 let hojd = 5;
 
-// Räkna ut arean här
-let area = bredd * hojd;
+// Räkna ut arean här (bredd * hojd)
+let area =
 
 console.log("Arean är: " + area);`,
-    hint: 'Använd `*` för multiplikation. Area = bredd * höjd.',
+    hint: 'Skriv `bredd * hojd` efter likhetstecknet. Använd `*` för multiplikation.',
     verify: (output) => output.includes('40'),
   },
   {
@@ -79,7 +69,7 @@ console.log("Arean är: " + area);`,
     level: 3,
     content: `
       <h2>Villkor med if/else</h2>
-      <p>Med <code>if</code> kan du få programmet att fatta beslut:</p>
+      <p>Med <code>if</code> och <code>else</code> kan koden fatta beslut:</p>
       <pre><code>let age = 18;
 
 if (age >= 18) {
@@ -89,26 +79,27 @@ if (age >= 18) {
 }</code></pre>
 
       <h3>Jämförelseoperatorer</h3>
-      <pre><code>===   // lika med
-!==   // inte lika med
-> >=  // större än / större eller lika
-< <=  // mindre än / mindre eller lika</code></pre>
+      <pre><code>===   lika med
+!==   inte lika med
+> >=  större än
+< <=  mindre än</code></pre>
 
       <div class="challenge-box">
         <h3>✏️ Din uppgift</h3>
-        <p>Skriv ett program som kollar om ett tal är jämnt eller udda. Använd modulo (<code>%</code>).</p>
+        <p>Skriv ett program som kollar om talet <code>7</code> är jämnt eller udda med hjälp av <code>%</code>.</p>
         <p><strong>Ledtråd:</strong> Om <code>tal % 2 === 0</code> är talet jämnt.</p>
       </div>
     `,
     template: `let tal = 7;
 
-// Kolla om talet är jämnt eller udda
-if (tal % 2 === 0) {
+// Skriv din if/else här
+// Kolla om tal % 2 === 0
+if () {
   console.log(tal + " är jämnt");
 } else {
   console.log(tal + " är udda");
 }`,
-    hint: 'Använd `% 2` för att kolla om ett tal är jämnt (rest 0) eller udda (rest 1).',
+    hint: 'Skriv `tal % 2 === 0` efter `if`. Om resten är 0 är talet jämnt, annars udda.',
     verify: (output) => output.includes('udda'),
   },
   {
@@ -118,12 +109,7 @@ if (tal % 2 === 0) {
     level: 4,
     content: `
       <h2>Loopar - upprepa kod</h2>
-      <p>Loopar låter dig köra samma kod flera gånger. <code>for</code>-loopen är vanligast:</p>
-      <pre><code>for (let i = 0; i < 5; i++) {
-  console.log("Nummer: " + i);
-}</code></pre>
-
-      <h3>For-loopens delar</h3>
+      <p><code>for</code>-loopen upprepar kod flera gånger:</p>
       <pre><code>for (start; villkor; steg) {
   // kod som upprepas
 }</code></pre>
@@ -135,19 +121,19 @@ if (tal % 2 === 0) {
 
       <div class="challenge-box">
         <h3>✏️ Din uppgift</h3>
-        <p>Skriv ut alla jämna tal från 0 till 10 med en for-loop.</p>
+        <p>Skriv ut alla jämna tal från 0 till 10 med en for-loop. Använd <code>%</code> för att hitta jämna tal.</p>
       </div>
     `,
     template: `// Skriv ut jämna tal från 0 till 10
 for (let i = 0; i <= 10; i++) {
-  if (i % 2 === 0) {
+  // Lägg till en if-sats här
+  // som kollar om i är jämnt
     console.log(i);
-  }
 }`,
-    hint: 'Använd `i % 2 === 0` för att hitta jämna tal. Loopa från 0 till 10 med `<=`.',
+    hint: 'Lägg till `if (i % 2 === 0) {` innan console.log. Glöm att stänga med `}`.',
     verify: (output) => {
       const lines = output.split('\n').filter(l => l.trim());
-      return lines.length === 6; // 0, 2, 4, 6, 8, 10
+      return lines.length === 6;
     },
   },
   {
@@ -157,35 +143,26 @@ for (let i = 0; i <= 10; i++) {
     level: 5,
     content: `
       <h2>Funktioner - återanvändbar kod</h2>
-      <p>En funktion är ett kodblock som du kan anropa flera gånger:</p>
+      <p>En funktion skapas med <code>function</code>-nyckelordet:</p>
       <pre><code>function halsning(namn) {
   return "Hej " + namn + "!";
-}
-
-console.log(halsning("Anna"));  // "Hej Anna!"
-console.log(halsning("Erik"));  // "Hej Erik!"</code></pre>
-
-      <h3>Funktionens delar</h3>
-      <ul>
-        <li><code>function</code> – nyckelord för att skapa funktion</li>
-        <li><code>namn</code> – parameter (indata)</li>
-        <li><code>return</code> – vad funktionen skickar tillbaka</li>
-      </ul>
+}</code></pre>
+      <p>Sen <strong>anropar</strong> du den: <code>halsning("Anna")</code></p>
 
       <div class="challenge-box">
         <h3>✏️ Din uppgift</h3>
-        <p>Skapa en funktion <code>multiply</code> som tar två tal och returnerar produkten. Anropa den och skriv ut resultatet.</p>
+        <p>Skapa funktionen <code>multiply</code> som tar två tal och <code>return</code>erar produkten. Sen anropar du den med 4 och 7.</p>
       </div>
     `,
-    template: `// Skapa din funktion här
+    template: `// Skapa funktionen multiply här
 function multiply(a, b) {
-  return a * b;
+  // lägg till return här
 }
 
 // Anropa funktionen och skriv ut
 let result = multiply(4, 7);
 console.log("4 * 7 = " + result);`,
-    hint: 'En funktion skapas med `function namn(a, b) { return a * b; }`. Glöm inte att anropa den!',
+    hint: 'Inuti funktionen: `return a * b;`. Glöm inte `return`!',
     verify: (output) => output.includes('28'),
   },
 
@@ -197,29 +174,24 @@ console.log("4 * 7 = " + result);`,
     level: 1,
     content: `
       <h2>Variabler i Python</h2>
-      <p>Python är känt för att vara lättläst. Variabler skapas utan nyckelord:</p>
+      <p>I Python skapar du variabler utan nyckelord:</p>
       <pre><code>name = "Anna"
 age = 25
 print(f"Hej {name}!")</code></pre>
 
-      <h3>Datatyper i Python</h3>
-      <pre><code>text = "Hej"        # str (string)
-tal = 42            # int (heltal)
-decimal = 3.14      # float (decimal)
-sant = True         # bool (boolean)
-lista = [1, 2, 3]   # list</code></pre>
-
       <div class="challenge-box">
         <h3>✏️ Din uppgift</h3>
-        <p>Skapa en variabel <code>stad</code> med namnet på en stad och en variabel <code>population</code> med ett antal. Skriv ut: "Staden X har Y invånare".</p>
+        <p>Skapa variablerna <code>stad</code> och <code>population</code>. Skriv ut "Staden X har Y invånare" med en f-string.</p>
       </div>
     `,
-    template: `stad = "Stockholm"
-population = 975000
+    template: `# Skapa variablerna här
+stad =
+population =
 
+# Skriv ut med f-string
 print(f"Staden {stad} har {population} invånare")`,
-    hint: 'Använd f-string: `f"text {variabel}"` för att sätta in variabler i text.',
-    verify: (output) => output.includes('Stockholm') && output.includes('975000'),
+    hint: 'Använd `stad = "Stockholm"` och `population = 975000`. f-string: `f"text {variabel}"`.',
+    verify: (output) => output.includes('Staden') && output.includes('har') && output.includes('invånare'),
   },
   {
     id: 'py-if',
@@ -228,32 +200,32 @@ print(f"Staden {stad} har {population} invånare")`,
     level: 2,
     content: `
       <h2>If-satser i Python</h2>
-      <p>I Python använder man <code>if</code>, <code>elif</code> och <code>else</code>:</p>
+      <p>Python använder <code>if</code>, <code>elif</code> och <code>else</code>:</p>
       <pre><code>temperatur = 25
 
 if temperatur > 30:
-    print("Det är varmt!")
+    print("Varmt!")
 elif temperatur > 15:
-    print("Det är lagom.")
+    print("Lagom.")
 else:
-    print("Det är kallt.")</code></pre>
-
-      <p><strong>Viktigt:</strong> Python använder indentering (mellanslag) istället för klamrar!</p>
+    print("Kallt.")</code></pre>
+      <p><strong>Viktigt:</strong> Kolon <code>:</code> och indentering (4 mellanslag) istället för klamrar!</p>
 
       <div class="challenge-box">
         <h3>✏️ Din uppgift</h3>
-        <p>Skriv ett program som säger om ett tal är positivt, negativt eller noll.</p>
+        <p>Skriv klart koden så den säger om <code>tal</code> är positivt, negativt eller noll.</p>
       </div>
     `,
     template: `tal = -3
 
-if tal > 0:
+# Skriv klart if-satserna
+if :
     print(f"{tal} är positivt")
-elif tal < 0:
+ tal < 0:
     print(f"{tal} är negativt")
-else:
+:
     print("Talet är noll")`,
-    hint: 'Använd `>` för positivt, `<` för negativt, `else` för noll. Glöm inte kolon `:` och indentering!',
+    hint: 'Använd `tal > 0`, `elif tal < 0`, `else:`. Glöm inte kolon `:` efter villkoren!',
     verify: (output) => output.includes('negativt'),
   },
   {
@@ -263,29 +235,21 @@ else:
     level: 3,
     content: `
       <h2>For-loopar i Python</h2>
-      <p>Pythons for-loop är enkel och kraftfull:</p>
-      <pre><code># Loopa genom en lista
-frukter = ["äpple", "banan", "apelsin"]
-for frukt in frukter:
-    print(frukt)
-
-# Loopa med range()
-for i in range(5):
-    print(i)  # 0, 1, 2, 3, 4</code></pre>
-
-      <h3>range()</h3>
+      <p><code>range()</code> genererar en serie tal:</p>
       <pre><code>range(5)       # 0, 1, 2, 3, 4
-range(2, 6)    # 2, 3, 4, 5
+range(1, 11)   # 1, 2, 3, ..., 10
 range(0, 10, 2) # 0, 2, 4, 6, 8</code></pre>
 
       <div class="challenge-box">
         <h3>✏️ Din uppgift</h3>
-        <p>Använd en for-loop för att skriva ut 5:ans multiplikationstabell (1-10).</p>
+        <p>Skriv ut 5:ans multiplikationstabell (1 till 10) med en for-loop och <code>range()</code>.</p>
+        <p><strong>Exempel på utskrift:</strong> <code>5 * 3 = 15</code></p>
       </div>
     `,
-    template: `for i in range(1, 11):
-    print(f"5 * {i} = {5 * i}")`,
-    hint: 'Använd `range(1, 11)` för talen 1 till 10. Använd f-string för att formatera utskriften.',
+    template: `# Skriv din for-loop här
+for i in range(, ):
+    print(f"5 * {i} = {}")`,
+    hint: 'Använd `range(1, 11)` för talen 1–10. Räkna ut produkten med `5 * i`.',
     verify: (output) => {
       return output.includes('5 * 5 = 25') && output.includes('5 * 10 = 50');
     },
@@ -297,32 +261,26 @@ range(0, 10, 2) # 0, 2, 4, 6, 8</code></pre>
     level: 4,
     content: `
       <h2>Listor i Python</h2>
-      <p>Listor används för att lagra flera värden:</p>
-      <pre><code>frukter = ["äpple", "banan", "apelsin"]
-print(frukter[0])     # äpple (index 0)
-print(len(frukter))   # 3 (längd)
-frukter.append("kiwi")# lägg till
-frukter.remove("banan")# ta bort</code></pre>
-
-      <h3>Användbara list-metoder</h3>
-      <pre><code>lista.append(x)   # lägg till i slutet
-lista.sort()      # sortera
-lista.reverse()   # vänd om
-len(lista)        # längd
-sum(lista)        # summa (om tal)</code></pre>
+      <p>Listor lagrar flera värden. <code>sum()</code> och <code>len()</code> är användbara:</p>
+      <pre><code>priser = [10, 20, 30]
+print(sum(priser))   # 60
+print(len(priser))   # 3
+print(sum(priser) / len(priser))  # 20.0</code></pre>
 
       <div class="challenge-box">
         <h3>✏️ Din uppgift</h3>
-        <p>Skapa en lista med talen 10, 20, 30, 40, 50. Beräkna och skriv ut summan och medelvärdet.</p>
+        <p>Beräkna summan och medelvärdet av talen <code>[10, 20, 30, 40, 50]</code> och skriv ut.</p>
       </div>
     `,
     template: `tal = [10, 20, 30, 40, 50]
-summa = sum(tal)
-medel = summa / len(tal)
+
+# Räkna ut summa och medelvärde här
+summa =
+medel =
 
 print(f"Summa: {summa}")
 print(f"Medelvärde: {medel}")`,
-    hint: 'Använd `sum(lista)` för summa och `sum(lista) / len(lista)` för medelvärde.',
+    hint: 'Använd `sum(tal)` för summa och `summa / len(tal)` för medelvärde.',
     verify: (output) => output.includes('Summa: 150') && output.includes('Medelvärde: 30.0'),
   },
 
@@ -334,47 +292,35 @@ print(f"Medelvärde: {medel}")`,
     level: 1,
     content: `
       <h2>HTML - webbens byggstenar</h2>
-      <p>HTML (HyperText Markup Language) används för att skapa webbsidor. HTML består av <strong>taggar</strong> som strukturerar innehåll:</p>
+      <p>HTML använder <strong>taggar</strong> för att strukturera innehåll:</p>
       <pre><code>&lt;h1&gt;Stor rubrik&lt;/h1&gt;
-&lt;p&gt;Detta är en paragraf.&lt;/p&gt;
-&lt;a href="https://example.com"&gt;En länk&lt;/a&gt;</code></pre>
+&lt;p&gt;En paragraf&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Punkt i lista&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
 
-      <h3>Vanliga taggar</h3>
-      <pre><code>&lt;h1&gt; till &lt;h6&gt;  Rubriker
-&lt;p&gt;              Paragraf
-&lt;img&gt;             Bild
-&lt;a&gt;               Länk
-&lt;ul&gt; &lt;li&gt;        Lista
-&lt;div&gt;             Låda/behållare</code></pre>
-
-      <p><strong>OBS:</strong> HTML visas i en inbyggd webbläsare. Du ser resultatet direkt!</p>
+      <p><strong>OBS:</strong> Din HTML visas som en förhandsvisning direkt!</p>
 
       <div class="challenge-box">
         <h3>✏️ Din uppgift</h3>
-        <p>Skapa en enkel webbsida med en rubrik, en paragraf och en lista med dina favoritämnen.</p>
+        <p>Bygg en sida med en rubrik (<code>h1</code>), en paragraf (<code>p</code>) och en lista (<code>ul</code> / <code>li</code>) med dina favoritämnen.</p>
       </div>
     `,
     template: `<!DOCTYPE html>
 <html>
 <head>
-  <title>Min första sida</title>
-  <style>
-    body { font-family: Arial; padding: 20px; background: #f0f0f0; }
-    h1 { color: #333; }
-  </style>
+  <title>Min sida</title>
 </head>
 <body>
-  <h1>Välkommen!</h1>
-  <p>Detta är min första webbsida.</p>
-  <h2>Mina favoritämnen:</h2>
-  <ul>
-    <li>Matematik</li>
-    <li>Programmering</li>
-    <li>Design</li>
-  </ul>
+  <!-- Lägg till en rubrik här -->
+
+  <!-- Lägg till en paragraf här -->
+
+  <!-- Lägg till en lista här -->
+
 </body>
 </html>`,
-    hint: 'Använd `<h1>` för rubrik, `<p>` för paragraf, `<ul>` och `<li>` för lista.',
+    hint: 'Använd `<h1>Rubrik</h1>`, `<p>Text</p>`, `<ul><li>Ämne</li></ul>`.',
     verify: (output) => output.includes('<h1>') && output.includes('<li>'),
   },
   {
@@ -384,31 +330,23 @@ print(f"Medelvärde: {medel}")`,
     level: 2,
     content: `
       <h2>CSS - gör din sida snygg</h2>
-      <p>CSS (Cascading Style Sheets) används för att styla HTML-element:</p>
-      <pre><code>&lt;style&gt;
-  h1 {
-    color: blue;
-    font-size: 36px;
-    text-align: center;
-  }
-  p {
-    color: #666;
-    line-height: 1.5;
-  }
-&lt;/style&gt;</code></pre>
+      <p>CSS läggs i en <code>&lt;style&gt;</code>-tagg i <code>&lt;head&gt;</code>:</p>
+      <pre><code>h1 {
+  color: blue;
+  text-align: center;
+}</code></pre>
 
-      <h3>CSS-egenskaper att testa</h3>
-      <pre><code>color              textfärg
-background-color   bakgrundsfärg
-font-size          textstorlek
-text-align         textjustering
-padding            inre marginal
-margin             yttre marginal
-border             kantlinje</code></pre>
+      <h3>Vanliga CSS-egenskaper</h3>
+      <pre><code>color            textfärg
+background       bakgrund
+font-size        textstorlek
+text-align       justering
+padding          inre marginal
+margin           yttre marginal</code></pre>
 
       <div class="challenge-box">
         <h3>✏️ Din uppgift</h3>
-        <p>Skapa en personlig presentationssida med rubrik, bild (använd emoji eller text), och styling med CSS.</p>
+        <p>Lägg till CSS i <code>&lt;style&gt;</code> för att styla sidan. Välj färger, typsnitt och stil själv!</p>
       </div>
     `,
     template: `<!DOCTYPE html>
@@ -416,41 +354,23 @@ border             kantlinje</code></pre>
 <head>
   <title>Min sida</title>
   <style>
+    /* Lägg till din CSS här */
     body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      max-width: 600px;
-      margin: 50px auto;
-      padding: 30px;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: white;
-      border-radius: 15px;
+      font-family: Arial;
+      padding: 40px;
     }
     h1 {
-      font-size: 40px;
-      text-align: center;
-    }
-    p {
-      font-size: 18px;
-      line-height: 1.6;
-    }
-    .card {
-      background: rgba(255,255,255,0.1);
-      padding: 20px;
-      border-radius: 10px;
-      margin-top: 20px;
+      /* styla rubriken */
     }
   </style>
 </head>
 <body>
-  <h1>🌟 Hej, jag är Kalle!</h1>
-  <div class="card">
-    <p>Jag lär mig webbutveckling och älskar att skapa snygga sidor med HTML och CSS.</p>
-    <p>Mina favoritfärger är blå och lila! 💜</p>
-  </div>
+  <h1>Min sida</h1>
+  <p>Detta är min personliga sida med egen styling!</p>
 </body>
 </html>`,
-    hint: 'Använd `<style>` i `<head>` för CSS. Testa olika färger, marginaler och typsnitt!',
-    verify: (output) => output.includes('<style>') && output.includes('color'),
+    hint: 'Prova `color`, `text-align`, `background`, `font-size`. T.ex. `h1 { color: red; text-align: center; }`.',
+    verify: (output) => output.includes('<style>') && output.includes('{'),
   },
   {
     id: 'html-interactive',
@@ -459,24 +379,13 @@ border             kantlinje</code></pre>
     level: 3,
     content: `
       <h2>Interaktivitet med JavaScript</h2>
-      <p>Du kan lägga till enkel JavaScript i din HTML för att göra sidan interaktiv:</p>
-      <pre><code>&lt;button onclick="alert('Hej!')"&gt;Klicka mig&lt;/button&gt;
-
-&lt;script&gt;
-function andraText() {
-  document.getElementById("demo").innerHTML = "Texten ändrades!";
-}
-&lt;/script&gt;</code></pre>
-
-      <h3>Vanliga JavaScript-kommandon för HTML</h3>
-      <pre><code>document.getElementById("id")
-document.querySelector(".class")
-element.innerHTML = "ny text"
-element.style.color = "red"</code></pre>
+      <p>Knappen har redan <code>onclick="changeMessage()"</code>. Du ska skriva funktionen!</p>
+      <pre><code>document.getElementById("id").innerHTML = "ny text";
+document.getElementById("id").style.color = "red";</code></pre>
 
       <div class="challenge-box">
         <h3>✏️ Din uppgift</h3>
-        <p>Skapa en sida med en knapp som ändrar text och färg när man klickar på den.</p>
+        <p>Skriv klart JavaScript-funktionen <code>changeMessage()</code> så att den ändrar texten i <code>#message</code> och stilar om den när man klickar på knappen.</p>
       </div>
     `,
     template: `<!DOCTYPE html>
@@ -484,29 +393,9 @@ element.style.color = "red"</code></pre>
 <head>
   <title>Interaktiv demo</title>
   <style>
-    body {
-      font-family: Arial;
-      text-align: center;
-      padding: 50px;
-      transition: background 0.3s;
-    }
-    #message {
-      font-size: 24px;
-      padding: 20px;
-      margin: 20px;
-      border-radius: 10px;
-      background: #f0f0f0;
-    }
-    button {
-      padding: 12px 30px;
-      font-size: 18px;
-      background: #667eea;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    button:hover { background: #5a6fd6; }
+    body { font-family: Arial; text-align: center; padding: 50px; }
+    #message { font-size: 24px; padding: 20px; margin: 20px; background: #f0f0f0; border-radius: 10px; }
+    button { padding: 12px 30px; font-size: 18px; background: #667eea; color: white; border: none; border-radius: 8px; cursor: pointer; }
   </style>
 </head>
 <body>
@@ -515,15 +404,16 @@ element.style.color = "red"</code></pre>
   <button onclick="changeMessage()">Ändra mig!</button>
 
   <script>
+    // Skriv klart funktionen här
     function changeMessage() {
-      document.getElementById("message").innerHTML = "🎉 Du klickade!";
-      document.getElementById("message").style.background = "#a6e3a1";
-      document.body.style.background = "#f0f4ff";
+      // Ändra texten i #message
+
+      // Ändra bakgrundsfärgen på #message
     }
   </script>
 </body>
 </html>`,
-    hint: 'Använd `onclick` attributet på knappen. I JavaScript, använd `document.getElementById()` för att ändra HTML-element.',
+    hint: 'Använd `document.getElementById("message").innerHTML = "...";` för text och `.style.background = "..."` för färg.',
     verify: (output) => output.includes('onclick') && output.includes('getElementById'),
   },
 ];
