@@ -416,6 +416,292 @@ document.getElementById("id").style.color = "red";</code></pre>
     hint: 'Använd `document.getElementById("message").innerHTML = "...";` för text och `.style.background = "..."` för färg.',
     verify: (output) => output.includes('onclick') && output.includes('getElementById'),
   },
+
+  // ===== JAVASCRIPT FLER =====
+  {
+    id: 'js-arrays',
+    title: 'Arrays',
+    lang: 'javascript',
+    level: 6,
+    content: `
+      <h2>Arrays – listor med data</h2>
+      <p>En array lagrar flera värden i en variabel:</p>
+      <pre><code>let frukter = ["äpple", "banan", "apelsin"];
+console.log(frukter[0]);  // äpple (index 0)
+console.log(frukter.length); // 3</code></pre>
+      <h3>Användbara metoder</h3>
+      <pre><code>.push(x)    lägg till i slutet
+.pop()      ta bort sista
+.indexOf(x) hitta index
+.join(", ") slå ihop till sträng</code></pre>
+
+      <div class="challenge-box">
+        <h3>✏️ Din uppgift</h3>
+        <p>Skapa en lista med tre frukter. Lägg till en fyrde frukt med <code>.push()</code>. Skriv ut hela listan med <code>.join(", ")</code>.</p>
+      </div>
+    `,
+    template: `let frukter = ["äpple", "banan"];
+
+// Lägg till en tredje frukt med push()
+
+
+// Lägg till en fjarde frukt med push()
+
+
+// Skriv ut listan med join(", ")
+console.log();`,
+    hint: 'Använd `frukter.push("apelsin")` för att lägg till. `frukter.join(", ")` slår ihop.',
+    verify: (output) => output.length > 5,
+  },
+  {
+    id: 'js-objects',
+    title: 'Objects',
+    lang: 'javascript',
+    level: 7,
+    content: `
+      <h2>Objects – nyckel-värde-par</h2>
+      <p>Ett objekt lagrar data i named properties:</p>
+      <pre><code>let person = {
+  name: "Anna",
+  age: 25
+};
+console.log(person.name); // Anna</code></pre>
+
+      <div class="challenge-box">
+        <h3>✏️ Din uppgift</h3>
+        <p>Skapa ett objekt <code>bil</code> med egenskaperna <code>make</code>, <code>model</code> och <code>year</code>. Skriv ut: "Bilen är en [make] [model] från [year]"</p>
+      </div>
+    `,
+    template: `// Skapa objektet bil här
+let bil = {
+
+};
+
+console.log("Bilen är en " + bil.make + " " + bil.model + " från " + bil.year);`,
+    hint: 'Objekt: `{ key1: värde, key2: värde }`. Komma mellan varje par!',
+    verify: (output) => output.includes('Bilen är en') && output.includes('från'),
+  },
+  {
+    id: 'js-strings',
+    title: 'Strängmetoder',
+    lang: 'javascript',
+    level: 8,
+    content: `
+      <h2>Strängmetoder</h2>
+      <p>JavaScript har inbyggda metoder för strängar:</p>
+      <pre><code>let text = "  Hej Världen!  ";
+text.length           // 16
+text.toUpperCase()    // "  HEJ VÄRLDEN!  "
+text.trim()           // "Hej Världen!"
+text.includes("Världen") // true
+text.replace("Världen", "Sverige")</code></pre>
+
+      <div class="challenge-box">
+        <h3>✏️ Din uppgift</h3>
+        <p>Använd <code>.toUpperCase()</code> och <code>.trim()</code> på strängen nedan. Skriv sedan ut hur lång den är.</p>
+      </div>
+    `,
+    template: `let text = "   kodlabb är coolt!   ";
+
+// Använd trim() och toUpperCase()
+
+
+// Skriv ut längden med .length
+console.log();`,
+    hint: '`.trim()` tar bort mellanslag i början/slutet. `.toUpperCase()` gör allt till versaler.',
+    verify: (output) => output.length > 0,
+  },
+
+  // ===== PYTHON FLER =====
+  {
+    id: 'py-dict',
+    title: 'Ordböcker (dict)',
+    lang: 'python',
+    level: 5,
+    content: `
+      <h2>Ordböcker i Python</h2>
+      <p>En dictionary lagrar nyckel-värde-par:</p>
+      <pre><code>person = {
+    "namn": "Anna",
+    "ålder": 25
+}
+print(person["namn"])  # Anna</code></pre>
+
+      <div class="challenge-box">
+        <h3>✏️ Din uppgift</h3>
+        <p>Skapa en ordbok <code>bok</code> med titel, författare och sidor. Skriv ut: "Titel: X, Författare: Y, Sidor: Z"</p>
+      </div>
+    `,
+    template: `# Skapa ordboken här
+bok = {
+    # fyll i tre nycklar
+};
+
+print(f"Titel: {bok[]}, Författare: {bok[]}, Sidor: {bok[]}")`,
+    hint: 'Ordbok: `{ "nyckel": värde }`. Access: `bok["nyckel"]`.',
+    verify: (output) => output.includes('Titel:'),
+  },
+  {
+    id: 'py-while',
+    title: 'While-loopar',
+    lang: 'python',
+    level: 6,
+    content: `
+      <h2>While-loopar</h2>
+      <p>En <code>while</code>-loop upprepar så länge villkoret är True:</p>
+      <pre><code>antal = 0
+while antal < 5:
+    print(antal)
+    antal = antal + 1</code></pre>
+      <p><strong>Varning:</strong> Glöm inte att öka räknaren!</p>
+
+      <div class="challenge-box">
+        <h3>✏️ Din uppgift</h3>
+        <p>Bränna en kalori om i taget! Börja på 100 kalorier och bränn 10 i taget tills du är nere på 0. Skriv ut varje steg.</p>
+      </div>
+    `,
+    template: `kalorier = 100
+
+# Skriv while-loopen här
+while :
+    print(f"Kvar: {kalorier}")
+    # minska med 10
+
+print("Målet nått! 🎉")`,
+    hint: 'Villkor: `kalorier > 0`. Öka/minska med `kalorier = kalorier - 10`.',
+    verify: (output) => output.includes('Målet nått'),
+  },
+  {
+    id: 'py-functions',
+    title: 'Funktioner',
+    lang: 'python',
+    level: 7,
+    content: `
+      <h2>Funktioner i Python</h2>
+      <p>Funktioner skapas med <code>def</code>:</p>
+      <pre><code>def halsning(namn):
+    return f"Hej {namn}!"
+
+print(halsning("Anna"))</code></pre>
+
+      <div class="challenge-box">
+        <h3>✏️ Din uppgift</h3>
+        <p>Skapa en funktion <code>berakna</code> som tar ett tal och returnerar talet i kvadrat (tal × tal). Anropa den med 6.</p>
+      </div>
+    `,
+    template: `# Skapa funktionen här
+def berakna():
+
+# Anropa funktionen med 6 och skriv ut
+
+
+print("6 i kvadrat är", )`,
+    hint: 'Funktion: `def berakna(tal): return tal * tal`. Anrop: `berakna(6)`.',
+    verify: (output) => output.includes('36'),
+  },
+
+  // ===== HTML/CSS FLER =====
+  {
+    id: 'html-forms',
+    title: 'Formulär',
+    lang: 'html',
+    level: 4,
+    content: `
+      <h2>HTML-formulär</h2>
+      <p>Formulär samlar in data från användaren:</p>
+      <pre><code>&lt;form&gt;
+  &lt;input type="text" placeholder="Namn"&gt;
+  &lt;input type="email"&gt;
+  &lt;button type="submit"&gt;Skicka&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+      <h3>Vanliga input-typer</h3>
+      <pre><code>text      vanlig text
+email     e-post
+number    siffror
+password  lösenord (dold)</code></pre>
+
+      <div class="challenge-box">
+        <h3>✏️ Din uppgift</h3>
+        <p>Skapa ett formulär med fälten: namn, e-post och en "Skicka"-knapp.</p>
+      </div>
+    `,
+    template: `<!DOCTYPE html>
+<html>
+<head>
+  <title>Formulär</title>
+  <style>
+    body { font-family: Arial; max-width: 400px; margin: 40px auto; }
+    input { display: block; width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 4px; }
+    button { padding: 10px 20px; background: #667eea; color: white; border: none; border-radius: 4px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Kontakta oss</h1>
+
+  <!-- Lägg till formulärhär -->
+
+
+</body>
+</html>`,
+    hint: 'Använd `<form>` och `<input type="text">`, `<input type="email">`, `<button>`.',
+    verify: (output) => output.includes('<form>') && output.includes('<input'),
+  },
+  {
+    id: 'css-flexbox',
+    title: 'Flexbox',
+    lang: 'html',
+    level: 5,
+    content: `
+      <h2>CSS Flexbox</h2>
+      <p>Flexbox gör det enkelt att ordna element sida vid sida:</p>
+      <pre><code>.container {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}</code></pre>
+      <h3>Vanliga egenskaper</h3>
+      <pre><code>display: flex            aktivera flexbox
+justify-content         horisontell placering
+align-items             vertikal placering
+gap                     avstånd mellan element
+flex-wrap: wrap         radbrytning</code></pre>
+
+      <div class="challenge-box">
+        <h3>✏️ Din uppgift</h3>
+        <p>Skapa tre kort som ligger sida vid sida med Flexbox. Lägg till avstånd och centrera dem.</p>
+      </div>
+    `,
+    template: `<!DOCTYPE html>
+<html>
+<head>
+  <title>Flexbox</title>
+  <style>
+    body { font-family: Arial; padding: 40px; background: #f5f5f5; }
+    .container {
+      /* Aktivera flexbox och centrera */
+
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      width: 150px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>Mina kort</h1>
+  <div class="container">
+    <div class="card">Kort 1</div>
+    <div class="card">Kort 2</div>
+    <div class="card">Kort 3</div>
+  </div>
+</body>
+</html>`,
+    hint: 'I `.container`: `display: flex; gap: 16px; justify-content: center;`.',
+    verify: (output) => output.includes('display: flex'),
+  },
 ];
 
 const getLessonsByLang = (lang) => {
