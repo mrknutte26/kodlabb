@@ -40,6 +40,23 @@ Lektioner finns i `src/lessons.js`. Varje lektion har följande struktur:
 - Svenska för användar-facing text (lektioner, UI)
 - 2 spaces indentation
 
+## Skapa en Pull Request
+
+1. Skapa en ny branch: `git checkout -b min-ny-funktion`
+2. Göra dina ändringar
+3. Testa att allt fungerar: `npm start`
+4. Committa: `git add . && git commit -m "Beskriv vad du ändrade"`
+5. Pusha: `git push origin min-ny-funktion`
+6. Öppna en PR på GitHub: https://github.com/mrknutte26/kodlabb/compare
+
+### Vad kan du bidra med?
+
+- nya lektioner
+- fixa buggar
+ förbättra UI/UX
+- översättning till fler språk
+- bättre testning av uppgifter
+
 ## Bygga
 
 ```bash
